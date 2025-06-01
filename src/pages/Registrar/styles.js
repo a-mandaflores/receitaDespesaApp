@@ -28,19 +28,10 @@ export const Button = styled.TouchableOpacity`
     font-size: 20px;
 `;
 
-export const TypeButton = styled.TouchableOpacity`
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
+export const ButtonText = styled.Text`
+  color: white;
+  font-weight: bold;
+  text-align: center;
 `;
 
-export const Text = styled.Text`
-  font-size: 15px;
-`;
 

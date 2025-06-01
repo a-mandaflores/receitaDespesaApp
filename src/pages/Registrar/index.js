@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { Background } from "../Login/styles";
 import Header from "../../components/Header";
-import { Button, Container, Input, Text, TypeButton } from "./styles";
-import Feather from "react-native-vector-icons/Feather";
-import { View } from "react-native";
+import { Button, ButtonText, Container, Input } from "./styles";
 import api from "../../services/api";
-
+import Actions from "../../components/Register";
 
 export default function Registrar() {
   const [description, setDescription] = useState("");
@@ -45,38 +43,11 @@ export default function Registrar() {
           keyboardType="numeric"
           value={valor}
           onChangeText={setValor}
-        />
-
-        {/* Substituir <div> por <View> */}
-        <View style={{ flexDirection: "row", gap: 10, marginBottom: 20 }}>
-          <TypeButton
-            isSelected={tipo === "receita"}
-            onPress={() => setTipo("receita")}
-            style={{ backgroundColor: tipo === "receita" ? "#fff" : "#eee" }}
-          >
-            <Feather
-                name="arrow-up"
-                size={20}
-                color={tipo === "receita" ? "green" : "gray"}
-            />
-            <Text>Receita</Text>
-          </TypeButton>
-
-          <TypeButton
-            isSelected={tipo === "despesa"}
-            onPress={() => setTipo("despesa")}
-            style={{ backgroundColor: tipo === "despesa" ? "#fff" : "#eee" }}
-          >
-            <Feather
-                name="arrow-down"
-                size={20}
-                color={tipo === "receita" ? "green" : "gray"}
-            />
-            <Text>Despesa</Text>
-          </TypeButton>
-        </View>
-
-        <Button onPress={ handleRegister }>Registrar</Button>
+        />        
+        <Actions onTipoChange={(tipoSelecionado) => setTipo(tipoSelecionado)}></Actions>
+        <Button onPress={ handleRegister }>
+            <ButtonText>Registrar</ButtonText>
+        </Button>
       </Container>
     </Background>
   );
